@@ -4,57 +4,80 @@
         <meta charset="utf-8" />
         <title>New Web Project</title>
         <style>
-        	.mainBox{
-        		height: 170px;
+        	header{
         		background-color: silver;
         	}
-        	.buttons{
+        	nav{
         		height: 100px;
         		background-color: gray;        		
         	}
-        	.container{
+        	section{
         		border: 1px solid gray;
         		background-color: silver;
         	}
-        	.content{
+        	article{
         		background-color: gray;    
         		padding: 10px;
         		margin: 10px;    		
         	}
-        	.bottomBar{
+        	footer{
         		height: 50px;
         		background-color: silver;
         	}
         </style>
     </head>
     <body>
-        <!--  (.mainBox>h1{Welcome To My Company}+img[src='images/logo.jpg'])+(.buttons>(ul>li{Link Item $}*5))+(.container(p.content{Lorem}*3))+(.bottomBar>h3{&copy; rights reserved by my company}) -->
-    <div class="mainBox">
+        <!--  (.mainBox>h1{Welcome To My Company}+img[src='images/logo.jpg'])+(.buttons>(ul>li>a{Link Item $}*5))+(.container(p.content{Lorem}*3))+(.bottomBar>h3{&copy; rights reserved by my company}) -->
+    <header>
     	<img src="images/logo.jpg" />
     	<h1>Welcome To My Company</h1>
-    </div>
-    <div class="buttons">
+    </header>
+    <nav>
 	    <ul>
-	    	<li>Link Item 1</li>
-	    	<li>Link Item 2</li>
-	    	<li>Link Item 3</li>
-	    	<li>Link Item 4</li>
-	    	<li>Link Item 5</li>
+	    	<li>
+	    		<a href="#">
+		    		Link Item 1</li>
+	    		</a>
+	    	<li>
+	    		<a href="#">
+	    			Link Item 2
+	    		</a>
+	    	</li>
+	    	<li>
+	    		<a href="#">
+	    			Link Item 3
+	    		</a>
+	    	</li>
+	    	<li>
+	    		<a href="#">
+	    			Link Item 4
+	    		</a>
+	    	</li>
+	    	<li>
+	    		<a href="#">
+	    			Link Item 5
+	    		</a>
+	    	</li>
 	    </ul>
     </div>
-    <div class="container">
-    	<p class="content">
+    <section>
+    	<header>
+    		<h1>
+	    		About My Company
+    		</h1>
+		</header>
+    	<article>
     		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum repellat veritatis quae eaque quos aperiam quis impedit vel rerum amet labore id excepturi enim iste earum voluptate voluptas ratione explicabo.
-    	</p>
-    	<p class="content">
+    	</article>
+    	<article>
     		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi consectetur necessitatibus beatae facilis in praesentium fugit sapiente adipisci unde hic culpa nihil rem assumenda nam nesciunt repudiandae quae incidunt quasi?
-    	</p>
-    	<p class="content">
+    	</article>
+    	<article>
     		Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos libero cum adipisci modi rerum nihil eveniet doloribus. Sapiente iusto cum ex sunt dolor nisi alias ad iure a voluptatibus architecto.
-    	</p>
-    </div>
-    <div class="bottomBar">
+    	</article>
+    </section>
+    <footer>
     	<h3>&copy; rights reserved by my company</h3>
-    </div>
+    </footer>
     </body>
 </html>
