@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		canvas{
+			outline: 1px solid red;
+		}
+	</style>
+	<script>
+		var can = null;
+		var ctx = null;
+		window.onload = function(){
+			can = document.querySelector("canvas");
+			ctx = can.getContext("2d");
+			var img = new Image();
+			img.src = "images/rajani.jpg";
+			img.onload = function(){
+			 // ctx.drawImage(images object,x,y);
+				ctx.drawImage(img,0,0,100,100);
+			}
+		};
+	</script>
+</head>
+<body>
+	<canvas width="500" height="500">
+		<h1>Are you still using IE ?</h1>
+	</canvas>
+</body>
+</html>

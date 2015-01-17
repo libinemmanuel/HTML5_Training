@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		canvas{
+			outline: 1px solid red;
+			margin: auto;
+			display: block;
+		}
+	</style>
+	<script>
+		var ctx = null;
+		window.onload = function(){
+			ctx = document
+						.getElementsByTagName("canvas")[0]
+						.getContext("2d");
+			ctx.strokeStyle = "silver";		
+			for(var i = 0; i < 400; i+=10){
+				ctx.moveTo(0,i);
+				ctx.lineTo(400,i);
+				ctx.moveTo(i,0);
+				ctx.lineTo(i,400);
+			}
+			ctx.stroke();
+			
+			ctx.fillStyle = "#a2aee5";
+			ctx.fillRect(10,150,50,250);
+			ctx.fillStyle = "#7c87bc";
+			ctx.fillRect(70,175,50,225);
+			ctx.fillStyle = "#62a1e0";
+			ctx.fillRect(130,100,50,300);
+			ctx.fillStyle = "#69c690";
+			ctx.fillRect(190,225,50,175);
+			ctx.fillStyle = "#56aa50";
+			ctx.fillRect(250,200,50,200);
+			ctx.fillStyle = "#52844b";
+			ctx.fillRect(310,325,50,75);
+			
+			ctx.fillStyle = "black";
+			ctx.font = "normal 16px arial"
+			ctx.fillText(((250/400)*100)+" %",10,150);
+			ctx.fillText(((225/400)*100)+" %",70,175);
+			ctx.fillText(((300/400)*100)+" %",130,100);
+			ctx.fillText(((175/400)*100)+" %",190,225);
+			ctx.fillText(((200/400)*100)+" %",250,200);
+			ctx.fillText(((75/400)*100)+" %",310,325);
+		};
+
+	</script>
+</head>
+<body>
+	<canvas width="400" height="400">
+		<h1>Are you still using IE ?</h1>
+	</canvas>
+</body>
+</html>

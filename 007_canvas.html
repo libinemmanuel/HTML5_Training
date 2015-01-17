@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		canvas{
+			outline: 1px solid red;
+		}
+	</style>
+	<script>
+		var can = null;
+		var ctx = null;
+		window.onload = function(){
+			can = document.querySelector("canvas");
+			ctx = can.getContext("2d");
+			/*
+			ctx.fillText(string, left offset, top offset, width);
+			ctx.strokeText();
+			 */
+			ctx.font = "bold 70px Arial";
+			ctx.fillStyle = "orange";
+			ctx.strokeStyle = "red";
+			ctx.lineWidth = 5;
+			
+			/*
+			 * transform <=====
+			 * scale(width multiplier, height multiplier)
+			 * rotate(radiance)
+			 * translate(left offset, top offset)
+			 */
+			
+			// ctx.translate(50,80);
+			// ctx.rotate((Math.PI/180)*15);
+			// ctx.scale(.5,2);
+			// ctx.strokeText("Valtech",0,0,300);
+			ctx.fillText("Valtech",10,70,300);
+			
+			ctx.fillStyle = "green";
+			ctx.rotate((Math.PI/180)*90);
+			ctx.translate(20,-50);
+			ctx.font = "normal 24px Arial";
+			ctx.fillText("Bangalore",0,0,300);
+		};
+	</script>
+</head>
+<body>
+	<canvas>
+		<h1>Are you still using IE ?</h1>
+	</canvas>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		canvas{
+			outline: 1px solid red;
+			margin: auto;
+			display: block;
+		}
+	</style>
+	<script>
+		var ctx = null;
+		window.onload = function(){
+			ctx = document
+						.getElementsByTagName("canvas")[0]
+						.getContext("2d");
+			//--------------------------
+			// ctx.arc(left offset, top offset, radius, start point, end point, ccw or not)
+			ctx.beginPath();
+			ctx.fillStyle = "yellow";
+			ctx.arc(100,100,50,(Math.PI/180)*0,(Math.PI/180)*360,true);
+			ctx.fill();
+			
+			ctx.beginPath();
+			ctx.strokeStyle = "red";
+			ctx.lineWidth = 20;
+			ctx.arc(100,100,50,(Math.PI/180)*0,(Math.PI/180)*90,true);
+			//ctx.closePath();
+			ctx.stroke();
+			
+			ctx.strokeStyle = "blue";
+			ctx.beginPath();
+			ctx.arc(100,100,50,(Math.PI/180)*0,(Math.PI/180)*90,false);
+			// ctx.closePath();
+			ctx.stroke();
+			
+		};
+	</script>
+</head>
+<body>
+	<canvas width="500" height="500">
+		<h1>Are you still using IE ?</h1>
+	</canvas>
+</body>
+</html>

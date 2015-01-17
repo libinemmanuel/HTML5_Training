@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<style>
+		canvas{
+			outline: 1px solid red;
+			margin: auto;
+			display: block;
+		}
+	</style>
+	<script>
+		var ctx = null;
+		var boxX = 0;
+		window.onload = function(){
+			ctx = document
+						.getElementsByTagName("canvas")[0]
+						.getContext("2d");
+			setInterval(anim,10)
+		};
+		//---------------------------
+		/*
+		function  clearBox(){
+			ctx.fillStyle = "white";
+			ctx.fillRect(0,0,500,500);
+		}
+		 */
+		function anim(){
+			//clearBox(); 
+			ctx.clearRect(0,0,500,500);
+			ctx.fillStyle = "black";
+			ctx.fillRect(boxX,200,50,50);
+			boxX++;
+		}
+	</script>
+</head>
+<body>
+	<canvas width="500" height="500">
+		<h1>Are you still using IE ?</h1>
+	</canvas>
+</body>
+</html>
