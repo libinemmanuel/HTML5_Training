@@ -10,6 +10,9 @@
 			display: block;
 		}
 	</style>
+	<!--[if lt IE 9]>
+			<script src="lib/excanvas.js"></script>
+    <![endif]-->
 	<script>
 		var ctx = null;
 		window.onload = function(){
@@ -20,7 +23,7 @@
 		};
 		//---------------------------
 		function anim(){
-			ctx.clearRect(0,0,500,500);
+			// ctx.clearRect(0,0,500,500);
 			var r = Math.round(Math.random()*255);
 			var g = Math.round(Math.random()*255);
 			var b = Math.round(Math.random()*255);
