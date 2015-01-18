@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Local Storage</title>
+	<style>
+		label{
+			width: 120px;
+			display: inline-block;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			document.getElementById("storeBtn")
+			.addEventListener("click", storeHandler);
+			
+			document.getElementById("getBtn")
+			.addEventListener("click", getHandler);
+		};
+		function storeHandler(){
+			localStorage.setItem("userName", document.getElementById("uN").value);
+			localStorage.setItem("userEmail", document.getElementById("uE").value);
+			localStorage.setItem("userExp", document.getElementById("uX").value);
+		};
+		function getHandler(){
+			/*
+			alert("User Name : "+localStorage.userName +" \n"+
+				  "User eMail : "+localStorage.userEmail+"\n"+
+				  "User Exp : "+localStorage.userExp);
+			 */
+		};
+	</script>
+</head>
+<body>
+	<label>User Name</label>
+	<input type="text" id="uN" />
+	<br/>
+	<label>User eMail</label>
+	<input type="text" id="uE" />
+	<br/>
+	<label>User Experience</label>
+	<input type="text" id="uX" />
+	<br/>
+	<label>&nbsp;</label>
+	<button id="storeBtn">Store It</button>
+	<button id="getBtn">Get It</button>
+</body>
+</html>
