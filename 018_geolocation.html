@@ -5,10 +5,12 @@
 	<title>Document</title>
 	<script>
 		var pos = null;	
+		var ws = null;	
 		window.onload = function(){
 			if(navigator.geolocation){
 				// alert("you can work with geolocation");
-				navigator.geolocation.getCurrentPosition(successFun,failFun)
+				// navigator.geolocation.getCurrentPosition(successFun,failFun)
+				ws = navigator.geolocation.watchPosition(successFun,failFun,{maximumAge:4000, timeout:5000,enableHighAccuracy:true})
 			}else{
 				alert("your browser do not support geolocation")
 			}
@@ -23,6 +25,7 @@
 			//document.getElementById("display").innerHTML += "<img src='https://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom=18&markers=color:orange|label:V|"+lat+","+lon+"&maptype=roadmap&size=800x800'/>"
 			// markers=color:orange|label:V|center
 			pos = position;
+			console.log(pos.coords.longitude)
 			document.getElementById("dis").innerHTML = "You are "+pos.coords.accuracy+"mts away from the marker";
 		}
 		function failFun(error){
@@ -37,11 +40,15 @@
 			var zoom = document.getElementById("zoom").value;
 			document.getElementById("map").src = "https://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom="+zoom+"&markers=color:orange|label:V|"+lat+","+lon+"&maptype=roadmap&size=800x800";
 		}
+		function stopIt(){
+			navigator.geolocation.clearWatch(ws);
+		}
 	</script>
 </head>
 <body>
 <input id="zoom" type="range" max="20" min="5" step="1" onchange="renderMap()" />
 <hr/>
+<button onclick="stopIt()">Stop Following Me</button>
 <h1 id="dis"></h1>
 <img id="map" />
 </body>
