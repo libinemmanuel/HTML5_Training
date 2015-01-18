@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<script>
+		window.onload = function(){
+			document
+			.getElementById("ua")
+			.addEventListener("input", inputHandler);
+		};
+		function inputHandler(evt){
+			if(evt.target.value < 18){
+			evt.target.setCustomValidity("you are too young to join us");
+			}else if(evt.target.value > 70){
+			evt.target.setCustomValidity("you are too old to join us");
+			}else{
+			evt.target.setCustomValidity("");
+			}
+		}
+	</script>
+</head>
+<body>
+	<form action="#" method="get" >
+	  <table border="0" cellspacing="5" cellpadding="5">
+		<tr>
+			<td>Age</td>
+			<td><input type="number" id="ua" name="userAge" id="userAge"/></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><input type="submit" value="Submit"/></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>
