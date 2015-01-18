@@ -23,23 +23,26 @@
 			document.getElementById("getFirstKey")
 			.addEventListener("click", getFirstKeyName);
 			
-			document.getElementById("allClear")
-			.addEventListener("click", removeAllData);
+			document.getElementById("removeData")
+			.addEventListener("click", removeUserData);
 		};
 		function storeHandler(){
+			/*
 			localStorage.setItem("userName", document.getElementById("uN").value);
 			localStorage.setItem("userEmail", document.getElementById("uE").value);
 			localStorage.setItem("userExp", document.getElementById("uX").value);
+			 */
+			// [object Object]
+			var userData = {
+				userName : document.getElementById("uN").value,
+				userEmail : document.getElementById("uE").value,
+				userExp : document.getElementById("uX").value
+			}
+			localStorage.setItem("userData", JSON.stringify(userData));
 		};
 		function getHandler(){
-			/*
-			alert("User Name : "+localStorage.userName +" \n"+
-				  "User eMail : "+localStorage.userEmail+"\n"+
-				  "User Exp : "+localStorage.userExp);
-			 */
-			alert("User Name : "+localStorage.getItem("userName") +" \n"+
-				  "User eMail : "+localStorage.getItem("userEmail")+"\n"+
-				  "User Exp : "+localStorage.getItem("userExp"));
+			var data = localStorage.getItem("userData");
+			alert(JSON.parse(data).userName);
 		};
 		function getCountHandler(){
 			alert(localStorage.length);
@@ -47,9 +50,9 @@
 		function getFirstKeyName(){
 			alert(localStorage.key(0));// first key index starts with 0;
 		};
-		function removeAllData(){
-			localStorage.clear()
-			alert("local storage is now clear");
+		function removeUserData(){
+			localStorage.removeItem("userData");
+			alert("removed user info")
 		};
 	</script>
 </head>
@@ -68,6 +71,6 @@
 	<button id="getBtn">Get It</button>
 	<button id="getCount">Get Count</button>
 	<button id="getFirstKey">Get First Key Name </button>
-	<button id="allClear"> All Clear </button>
+	<button id="removeData">Remove Item</button>
 </body>
 </html>
