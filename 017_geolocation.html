@@ -12,11 +12,15 @@
 				alert("your browser do not support geolocation")
 			}
 		};
-		function successFun(){
-			alert("hurray we found you")
+		function successFun(position){
+			// alert("hurray we found you");
+			var lon = position.coords.longitude;
+			var lat = position.coords.latitude;
+
+			document.getElementById("display").innerHTML = "<p>Longitude : "+lon+" </p><p> Latitude : "+lat+" </p>"
 		}
-		function failFun(){
-			alert("something went wrong")
+		function failFun(error){
+			alert("something went wrong");
 		}
 	</script>
 </head>
