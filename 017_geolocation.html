@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<title>Document</title>
 	<script>
+		var pos = null;	
 		window.onload = function(){
 			if(navigator.geolocation){
 				// alert("you can work with geolocation");
@@ -14,17 +15,29 @@
 		};
 		function successFun(position){
 			// alert("hurray we found you");
-			var lon = position.coords.longitude;
-			var lat = position.coords.latitude;
+			//var lon = position.coords.longitude;
+			//var lat = position.coords.latitude;
 
-			document.getElementById("display").innerHTML = "<p>Longitude : "+lon+" </p><p> Latitude : "+lat+" </p>"
+			//document.getElementById("display").innerHTML = "<p>Longitude : "+lon+" </p><p> Latitude : "+lat+" </p>"
+			//document.getElementById("display").innerHTML += "</hr>"
+			//document.getElementById("display").innerHTML += "<img src='https://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom=18&markers=color:orange|label:V|"+lat+","+lon+"&maptype=roadmap&size=800x800'/>"
+			// markers=color:orange|label:V|center
+			pos = position;
 		}
 		function failFun(error){
 			alert("something went wrong");
 		}
+		function renderMap(){
+			var lon = pos.coords.longitude;
+			var lat = pos.coords.latitude;
+			var zoom = document.getElementById("zoom").value;
+			document.getElementById("map").src = "https://maps.googleapis.com/maps/api/staticmap?center="+lat+","+lon+"&zoom="+zoom+"&markers=color:orange|label:V|"+lat+","+lon+"&maptype=roadmap&size=800x800";
+		}
 	</script>
 </head>
 <body>
-	<h1 id="display"></h1>
+<input id="zoom" type="range" max="20" min="5" step="1" onchange="renderMap()" />
+<hr/>
+<img id="map" />
 </body>
 </html>
